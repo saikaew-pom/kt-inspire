@@ -34,9 +34,14 @@ function StoryPage({ go }) {
 
       {/* portrait + intro */}
       <section className="section" style={{ paddingTop: 20 }}>
-        <div className="wrap about-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "clamp(32px,5vw,72px)", alignItems: "center" }}>
+        <div className="wrap story-intro-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "clamp(32px,5vw,72px)", alignItems: "center" }}>
+          <Reveal className="story-img-wrap" d={0.1}>
+            <Img src={KT.images.portrait} alt="Coach KT" phLabel="coach KT photo"
+              className="story-portrait"
+              style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", borderRadius: "var(--radius-lg)", boxShadow: "0 40px 80px -36px rgba(0,0,0,0.6)" }} />
+          </Reveal>
           <div>
-            <Reveal as="p" style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: "clamp(1.5rem,3vw,2.3rem)", lineHeight: 1.25, letterSpacing: "-0.02em" }}>
+            <Reveal as="p" className="story-intro-quote" style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: "clamp(1.5rem,3vw,2.3rem)", lineHeight: 1.25, letterSpacing: "-0.02em" }}>
               I've worked with people from diverse cultures and backgrounds across
               Asia's hospitality industry — and the lesson has stayed the same:
               <span className="accent-text"> growth almost always begins with a conversation.</span>
@@ -52,11 +57,14 @@ function StoryPage({ go }) {
               Self to Success.
             </Reveal>
           </div>
-          <Reveal d={0.1}>
-            <Img src={KT.images.portrait} alt="Coach KT" phLabel="coach KT photo"
-              style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", borderRadius: "var(--radius-lg)", boxShadow: "0 40px 80px -36px rgba(0,0,0,0.6)" }} />
-          </Reveal>
         </div>
+        <style>{`
+          @media(max-width:820px){
+            .story-intro-grid{ grid-template-columns:1fr !important; }
+            .story-portrait{ aspect-ratio:4/3 !important; max-height:360px; object-fit:cover; object-position:top; }
+            .story-intro-quote{ font-size:clamp(1.35rem,5vw,1.8rem) !important; }
+          }
+        `}</style>
       </section>
 
       {/* timeline */}
