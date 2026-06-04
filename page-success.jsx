@@ -70,7 +70,7 @@ function SuccessPage({ go }) {
               <Reveal key={i} d={i * 0.05}>
                 <div className="quote-row" style={{ display: "grid", gridTemplateColumns: "1fr 230px", gap: "clamp(20px,4vw,56px)", padding: "40px 0", borderTop: "1px solid var(--cream-deep)", alignItems: "center" }}>
                   <p style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: "clamp(1.3rem,2.6vw,2rem)", lineHeight: 1.25, letterSpacing: "-0.02em" }}>
-                    <span style={{ color: "var(--accent-deep)" }}>“</span>{t.quote}<span style={{ color: "var(--accent-deep)" }}>”</span>
+                    <span style={{ color: "var(--accent-deep)" }}>"</span>{t.quote}<span style={{ color: "var(--accent-deep)" }}>"</span>
                   </p>
                   <div>
                     <div style={{ fontWeight: 600 }}>{t.name}</div>

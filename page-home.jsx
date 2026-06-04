@@ -211,22 +211,22 @@ function TestimonialsHome() {
     <section className="section on-cream">
       <div className="wrap">
         <SectionHead eyebrow="In their words" title="The change, felt firsthand" max={520} />
-        <div className=”testimonial-layout” style={{ marginTop: 48, display: “grid”, gridTemplateColumns: “1fr auto”, gap: 40, alignItems: “end” }}>
+        <div className="testimonial-layout" style={{ marginTop: 48, display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "end" }}>
           <Reveal key={i} style={{ maxWidth: 880 }}>
-            <p style={{ fontFamily: “var(--font-display)”, fontWeight: 500, fontSize: “clamp(1.5rem,3.2vw,2.6rem)”, lineHeight: 1.18, letterSpacing: “-0.02em” }}>
-              <span style={{ color: “var(--accent-deep)” }}>”</span>{t.quote}<span style={{ color: “var(--accent-deep)” }}>”</span>
+            <p style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: "clamp(1.5rem,3.2vw,2.6rem)", lineHeight: 1.18, letterSpacing: "-0.02em" }}>
+              <span style={{ color: "var(--accent-deep)" }}>"</span>{t.quote}<span style={{ color: "var(--accent-deep)" }}>"</span>
             </p>
-            <div style={{ marginTop: 28, display: “flex”, alignItems: “center”, gap: 14 }}>
-              <span style={{ width: 38, height: 1.5, background: “var(--accent-deep)” }} />
+            <div style={{ marginTop: 28, display: "flex", alignItems: "center", gap: 14 }}>
+              <span style={{ width: 38, height: 1.5, background: "var(--accent-deep)" }} />
               <div>
                 <div style={{ fontWeight: 600 }}>{t.name}</div>
-                <div style={{ color: “var(--on-light-soft)”, fontSize: “0.92rem” }}>{t.org}</div>
+                <div style={{ color: "var(--on-light-soft)", fontSize: "0.92rem" }}>{t.org}</div>
               </div>
             </div>
           </Reveal>
-          <div className=”tnav-row” style={{ display: “flex”, gap: 10 }}>
-            <button className=”tnav” onClick={() => setI((i - 1 + KT.testimonials.length) % KT.testimonials.length)} aria-label=”Previous” style={{ transform: “scaleX(-1)” }}><Arrow /></button>
-            <button className=”tnav” onClick={() => setI((i + 1) % KT.testimonials.length)} aria-label=”Next”><Arrow /></button>
+          <div className="tnav-row" style={{ display: "flex", gap: 10 }}>
+            <button className="tnav" onClick={() => setI((i - 1 + KT.testimonials.length) % KT.testimonials.length)} aria-label="Previous" style={{ transform: "scaleX(-1)" }}><Arrow /></button>
+            <button className="tnav" onClick={() => setI((i + 1) % KT.testimonials.length)} aria-label="Next"><Arrow /></button>
           </div>
         </div>
       </div>
