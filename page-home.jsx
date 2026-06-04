@@ -8,7 +8,7 @@ function Hero({ go }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <section style={{ position: "relative", paddingTop: 120, overflow: "hidden" }}>
+    <section style={{ position: "relative", paddingTop: "clamp(88px,12vw,120px)", overflow: "hidden" }}>
       {/* ambient glow */}
       <div style={{
         position: "absolute", top: "-10%", right: "-5%", width: 620, height: 620,
@@ -19,7 +19,7 @@ function Hero({ go }) {
         position: "relative", display: "grid", gridTemplateColumns: "1.15fr 0.85fr",
         gap: "clamp(32px,5vw,80px)", alignItems: "center", minHeight: "84vh", paddingBlock: "clamp(40px,6vw,80px)",
       }}>
-        <div>
+        <div className="hero-text">
           <Reveal as="span" className="eyebrow" style={{ marginBottom: 26 }}>Communication Creates Change</Reveal>
           <Reveal as="h1" className="display" d={0.06} style={{ marginTop: 22 }}>
             Grow from<br />
@@ -35,9 +35,9 @@ function Hero({ go }) {
             <Btn onClick={() => go("contact")}>Book a discovery call</Btn>
             <Btn kind="ghost" onClick={() => go("services")}>Explore the journey</Btn>
           </Reveal>
-          <Reveal d={0.28} style={{ marginTop: 46, display: "flex", gap: 26, alignItems: "center" }}>
+          <Reveal d={0.28} style={{ marginTop: 46, display: "flex", gap: 26, alignItems: "center", flexWrap: "wrap" }}>
             <span style={{ fontSize: "0.78rem", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--on-dark-faint)" }}>Find me</span>
-            <div style={{ display: "flex", gap: 18 }}>
+            <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
               {["Facebook", "YouTube", "Instagram", "WhatsApp"].map((s) => (
                 <a key={s} href="#" className="social-link">{s}</a>
               ))}
@@ -45,21 +45,22 @@ function Hero({ go }) {
           </Reveal>
         </div>
 
-        <Reveal d={0.12} style={{ position: "relative" }}>
+        <Reveal d={0.12} className="hero-img-wrap" style={{ position: "relative" }}>
           <div style={{ position: "relative", transform: `translateY(${off * -0.04}px)` }}>
-            {/* accent frame */}
-            <div style={{
+            {/* accent frame — hidden on mobile to avoid overflow */}
+            <div className="hero-frame" style={{
               position: "absolute", inset: "-14px -14px 28px 22px", border: "1.5px solid var(--accent)",
               borderRadius: "var(--radius-lg)", opacity: 0.6,
             }} />
             <Img src={KT.images.hero} alt="Coach KT" phLabel="coach KT portrait"
+              className="hero-img"
               style={{
                 width: "100%", aspectRatio: "4/5", objectFit: "cover", objectPosition: "top center",
                 borderRadius: "var(--radius-lg)", position: "relative",
                 boxShadow: "0 40px 80px -30px rgba(0,0,0,0.6)",
               }} />
             {/* floating chip */}
-            <div style={{
+            <div className="hero-chip" style={{
               position: "absolute", bottom: 18, left: -24, background: "var(--paper)", color: "var(--on-light)",
               borderRadius: 16, padding: "16px 20px", boxShadow: "0 24px 50px -20px rgba(0,0,0,0.5)",
               display: "flex", alignItems: "center", gap: 14,
@@ -76,7 +77,20 @@ function Hero({ go }) {
       </div>
 
       <style>{`
-        @media(max-width:860px){ .hero-grid{ grid-template-columns:1fr !important; min-height:auto !important; } }
+        @media(max-width:860px){
+          .hero-grid{
+            grid-template-columns: 1fr !important;
+            min-height: auto !important;
+            padding-bottom: 0 !important;
+          }
+          /* show image before text on mobile */
+          .hero-img-wrap{ order: -1; }
+          .hero-img{ aspect-ratio: 3/2 !important; object-position: top center; }
+          .hero-frame{ display: none; }
+          .hero-chip{ left: 12px !important; bottom: 12px !important; padding: 12px 16px !important; }
+          .hero-chip span:first-child{ font-size: 1.5rem !important; }
+          .hero-text{ padding-bottom: 40px; }
+        }
       `}</style>
     </section>
   );
