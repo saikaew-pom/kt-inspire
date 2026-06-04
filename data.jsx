@@ -98,7 +98,7 @@ const KT = {
     {
       title: "Certified Practitioner of Neuro Linguistic Programming (NLP)",
       board: "The American Board of NLP (ABNLP)",
-      img: null,
+      img: "assets/certs/nlp-practitioner.jpg",
       points: ["Organise thinking and reframe limiting beliefs", "Communicate powerfully and create real results"],
     },
     {
