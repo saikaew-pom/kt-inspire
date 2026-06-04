@@ -107,7 +107,19 @@ function ContactPage({ go }) {
   const submit = (e) => {
     e.preventDefault();
     setTouched(true);
-    if (valid) setSent(true);
+    if (valid) {
+      const lines = [
+        "Hi Coach KT! I'd like to book a discovery call.",
+        "",
+        `Name: ${form.name}`,
+        `Email: ${form.email}`,
+        form.org ? `Organisation: ${form.org}` : null,
+        `Interest: ${form.goal}`,
+        form.message ? `\nMessage: ${form.message}` : null,
+      ].filter((l) => l !== null).join("\n");
+      window.open(`https://wa.me/66869643159?text=${encodeURIComponent(lines)}`, "_blank");
+      setSent(true);
+    }
   };
   return (
     <main>
