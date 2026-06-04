@@ -85,7 +85,7 @@ function Hero({ go }) {
           }
           /* show image before text on mobile */
           .hero-img-wrap{ order: -1; }
-          .hero-img{ aspect-ratio: 3/2 !important; object-position: top center; }
+          .hero-img{ aspect-ratio: 4/5 !important; object-position: top center; }
           .hero-frame{ display: none; }
           .hero-chip{ left: 12px !important; bottom: 12px !important; padding: 12px 16px !important; }
           .hero-chip span:first-child{ font-size: 1.5rem !important; }
